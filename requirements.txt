@@ -1,0 +1,25 @@
+asgiref==3.2.10
+Django==3.0.8
+pytz==2020.1
+sqlparse==0.3.1
+
+#rest framework
+djangorestframework==3.11.0
+
+#keras
+h5py==2.10.0
+Keras==2.4.3
+numpy==1.19.0
+PyYAML==5.3.1
+scipy==1.5.1
+six==1.15.0
+
+
+
+
+#sklearn
+joblib==0.16.0
+scikit-learn==0.23.1
+sklearn==0.0
+threadpoolctl==2.1.0
+
