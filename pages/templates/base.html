@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title> {% block title %} {% endblock %} - Mobile Phone Price Classifier </title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'assets/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'assets/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'assets/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'assets/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg  fixed-top shadow-sm bg-white"><a href = "/index"> 
+        <!--<img src = "/images/techhublogo.png" width = "200px" class = "img-responsive navbar-brand">-->
+        <h1>How much is phone suppose to cost?</h1>
+    </a>
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+           aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="/index" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="/general" class="nav-link">Articles</a></li>
+            <li class="nav-item"><a href="/events" class="nav-link"> Events</a></li>
+            <!--<li class="nav-item"><a href="/videos" class="nav-link">Videos</a></li>-->
+            <li class="nav-item"><a href="/discoveries" class="nav-link"> News </a></li>
+            <!--<li class="nav-item"><a href="/reviews" class="nav-link"> Reviews </a></li>
+            <li class="nav-item"><a href="/community" class="nav-link"> Community </a></li>-->
+           
+          </ul>
+          
+        </div>
+      </nav>
+      
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+        <div class="wrapper wrapper--w960">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    <div id = "loader"><img src = "{% static 'images/loading.gif' %}" id = "loading"></div>
+    <!-- Jquery JS-->
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'assets/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/global.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

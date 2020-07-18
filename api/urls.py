@@ -6,5 +6,6 @@ app_name = 'api'
 
 urlpatterns = [
     
-    path('', views.sample, name="api")
+    path('', views.index, name="home"),
+    path('predict', views.predict, name="predict")
 ]

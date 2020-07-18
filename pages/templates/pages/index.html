@@ -1,0 +1,159 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div >
+    Are you worried you may have overpaid for your new phone? Or you are heading over to<br>
+    buy a new phone? Let's help you know how much your phone should cost. Don't overpay for a phone anymore.
+    <br><br>
+</div>
+
+<div class="card card-2">
+    <div class="card-heading"></div>
+    <div class="card-body">
+        <h2 class="title">Phone features</h2>
+        <script type="text/javascript">
+            var csrf_token = "{{ csrf_token }}";
+          </script>
+        <form method="POST" action = "{% url 'api:predict' %}" id = "post-form">
+            {% csrf_token %}
+            <div class = "form-group">
+                <label> {{ form.battery_power.label }} </label>
+                    {{ form.battery_power }}
+            </div>
+
+            <div class = "form-group">
+                <label> {{ form.clock_speed.label }} </label>
+                    {{ form.clock_speed }}
+            </div>
+
+            <div class = "form-group">
+                <label> {{ form.front_camera.label }} </label>
+                    {{ form.front_camera }}
+            </div>
+
+            <div class = "form-group">
+                <label> {{ form.internal_memory.label }} </label>
+                    {{ form.internal_memory }}
+            </div>
+
+            <div class = "row">
+                <div class = "col-sm-6">
+                    <div class = "form-group">
+                        <label> {{ form.mobile_depth.label }} </label>
+                            {{ form.mobile_depth }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class = "form-group">
+                        <label> {{ form.weight.label }} </label>
+                            {{ form.weight }}
+                    </div>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col-sm-6">
+                    <div class = "form-group">
+                        <label> {{ form.n_cores.label }} </label>
+                            {{ form.n_cores }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class = "form-group">
+                        <label> {{ form.ram_size.label }} </label>
+                            {{ form.ram_size }}
+                    </div>
+                </div>
+            </div>
+
+            <div class = "form-group">
+                <label> {{ form.primary_camera.label }} </label>
+                    {{ form.primary_camera }}
+            </div>
+
+            <div class = "form-group">
+                <label> {{ form.talk_time.label }} </label>
+                    {{ form.talk_time }}
+            </div>
+
+            <div class = "row">
+                <div class = "col-sm-6">
+                    <div class = "form-group">
+                        <label> {{ form.pixel_height.label }} </label>
+                            {{ form.pixel_height }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class = "form-group">
+                        <label> {{ form.pixel_width.label }} </label>
+                            {{ form.pixel_width }}
+                    </div>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col-sm-6">
+                    <div class = "form-group">
+                        <label> {{ form.screen_height.label }} </label>
+                            {{ form.screen_height }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class = "form-group">
+                        <label> {{ form.screen_width.label }} </label>
+                            {{ form.screen_width }}
+                    </div>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col-sm-6">
+                    <div class = "form-group">
+                        {{ form.bluetooth }} <label> {{ form.bluetooth.label }} </label>                            
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class = "form-group">
+                        {{ form.dual_sim }} <label> {{ form.dual_sim.label }} </label>                            
+                    </div>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col-sm-6">
+                    <div class = "form-group">
+                        {{ form.three_g }} <label> {{ form.three_g.label }} </label>                            
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class = "form-group">
+                        {{ form.four_g }} <label> {{ form.four_g.label }} </label>                            
+                    </div>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col-sm-6">
+                    <div class = "form-group">
+                        {{ form.touch_screen }} <label> {{ form.touch_screen.label }} </label>                            
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class = "form-group">
+                        {{ form.wifi }} <label> {{ form.wifi.label }} </label>                            
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-t-30">
+                <button class="btn btn--radius btn--green" type="submit">Predict Price</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
