@@ -532,3 +532,13 @@ input {
 }
 
 
+.intro-header {
+  margin:auto;
+  margin-top:-110px;  
+  width:70%;
+  padding:20px;
+}
+
+.double {
+  margin-bottom:20px;
+}

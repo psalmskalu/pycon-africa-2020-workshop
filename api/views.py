@@ -11,6 +11,19 @@ from .apps import ApiConfig
 
 @api_view(["POST"])
 def predict(request):
+
+    '''
+     This function is used to accept all the input data,
+     and assign default of None or 0 to empty values as
+     the case may be.
+
+     If all values are present, then data is further con-
+     verted to appropraite data type and stored in a new list
+
+     THis list is fed into a Standard Scaler and finally fed
+     into the model for prediction
+
+    '''
     try:
         battery_power = request.data.get('battery_power',None)
         clock_speed = request.data.get('clock_speed',None)
@@ -41,7 +54,7 @@ def predict(request):
         
         if not None in features:
 
-            #Datapreprocessing Convert the values to float
+            
             battery_power = int(battery_power)
             clock_speed = float(clock_speed)
             front_camera = int(front_camera)
@@ -69,9 +82,8 @@ def predict(request):
                     three_g, touch_screen, wifi,
             ]
 
-            print(cleaned_features)
-
-            #perform standard scaling of feature to get
+            
+            #perform standard scaling of feature to get even distribution
             scaler = StandardScaler()
             X = scaler.fit_transform([cleaned_features])
 
@@ -80,28 +92,29 @@ def predict(request):
             model = ApiConfig.model
 
 
-            #Passing data to model & loading the model from disks
+            #Make prediction
             prediction = model.predict([X])[0]
 
             #Convert prediction back to label
             prediction = np.argmax(prediction)                  
             
             
+            #Prepare response data
             predictions = {
-                'status' : '0',
+                'status' : '201',
                 'message' : 'Successful',
                 'prediction' : prediction,                
             }
 
         else:
             predictions = {
-                'status' : '1',
-                'message': 'Invalid Parameters'                
+                'status' : '301',
+                'message': 'Invalid feature value'                
             }
 
     except Exception as exception:
         predictions = {
-            'status' : '2',
+            'status' : '501',
             "message": str(exception)
         }
     
